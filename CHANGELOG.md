@@ -1,3 +1,5 @@
+- Extend support for Transmission's APP_SUPPORT sub-folders to sync multiple machines with same torrent info
+
 # Mackup Changelog
 
 ## WIP
