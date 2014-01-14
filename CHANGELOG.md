@@ -4,6 +4,10 @@
 
 ## WIP
 
+- Only sync the config for Bundler
+
+## Mackup 0.5.6
+
 - Added support for LittleSnitch (thx @stechio)
 - Added support for OmniGraffle (thx @stecico)
 - Added support for SABnzbd (thx @stechico)
@@ -11,6 +15,7 @@
 - Added support for FontExplorer X (thx @stechico)
 - Improved Transmission support (thx @stechico)
 - Added support for Lightroom 2, 3 and 4 (thx @stechico)
+- Fix Bundler’s synced dir (thx @atipugin)
 
 ## Mackup 0.5.5
 

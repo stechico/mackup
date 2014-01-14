@@ -103,7 +103,7 @@ SUPPORTED_APPS = {
 
     'Boto': ['.boto'],
 
-    'Bundler': ['.bundler'],
+    'Bundler': ['.bundle/config'],
 
     'Byobu': ['.byobu',
               '.byoburc',
@@ -481,7 +481,7 @@ SUPPORTED_APPS = {
 
 
 # Current version
-VERSION = '0.5.4'
+VERSION = '0.5.6'
 
 # Mode used to backup files to Dropbox
 BACKUP_MODE = 'backup'
