@@ -146,6 +146,10 @@ SUPPORTED_APPS = {
 
     'Deal Alert': [PREFERENCES + 'com.LittleFin.DealAlert.plist'],
 
+    'Default Folder X': [PREFERENCES + 'com.stclairsoft.DefaultFolderX.favorites.plist',
+                         PREFERENCES + 'com.stclairsoft.DefaultFolderX.plist',
+                         PREFERENCES + 'com.stclairsoft.DefaultFolderX.settings.plist'],
+
     'Divvy': [PREFERENCES + 'com.mizage.direct.Divvy.plist'],
 
     'Droplr': [PREFERENCES + 'com.droplr.droplr-mac.plist'],
@@ -255,8 +259,7 @@ SUPPORTED_APPS = {
     'Mercurial': ['.hgrc',
                   '.hgignore_global'],
 
-    'Messages': ['Library/Messages',
-                 'Library/Application Scripts/com.apple.iChat',
+    'Messages': ['Library/Application Scripts/com.apple.iChat',
                  PREFERENCES + 'com.apple.iChat.plist',
                  PREFERENCES + 'com.apple.iChat.AIM.plist',
                  PREFERENCES + 'com.apple.iChat.Jabber.plist',
@@ -302,6 +305,10 @@ SUPPORTED_APPS = {
         PREFERENCES + 'com.tapbots.PastebotSync.plist',
         PREFERENCES + 'com.tapbots.PastebotSync.prefPane.plist',
         PREFERENCES + 'com.tapbots.PastebotSync.stats.plist'],
+
+    'Path Finder': [PREFERENCES + 'com.cocoatech.PathFinder.plist',
+                    APP_SUPPORT + 'Path Finder/PlugIns',
+                    APP_SUPPORT + 'Path Finder/Settings'],
 
     'PCKeyboardHack': [PREFERENCES + 'org.pqrs.PCKeyboardHack.plist'],
 
@@ -481,7 +488,7 @@ SUPPORTED_APPS = {
 
 
 # Current version
-VERSION = '0.5.6'
+VERSION = '0.5.7'
 
 # Mode used to backup files to Dropbox
 BACKUP_MODE = 'backup'
