@@ -196,7 +196,13 @@ SUPPORTED_APPS = {
 
     'Gmail Notifr': [PREFERENCES + 'com.ashchan.GmailNotifr.plist'],
 
-    'GnuPG': ['.gnupg'],
+    'GnuPG': ['.gnupg/gpg-agent.conf',
+              '.gnupg/gpg.conf',
+              '.gnupg/secring.gpg',
+              '.gnupg/trustdb.gpg',
+              '.gnupg/pubring.gpg'],
+
+    'Hands Off!': [PREFERENCES + 'com.metakine.handsoff.plist'],
 
     'Heroku': ['.heroku/accounts', '.heroku/plugins'],
 
@@ -239,7 +245,8 @@ SUPPORTED_APPS = {
 
     'LittleSnitch': [PREFERENCES + 'at.obdev.LittleSnitchNetworkMonitor.plist',
                      APP_SUPPORT + 'Little Snitch/rules.usr.xpl',
-                     APP_SUPPORT + 'Little Snitch/configuration.xpl'],
+                     APP_SUPPORT + 'Little Snitch/configuration.xpl',
+                     APP_SUPPORT + 'Little Snitch/configuration.user.xpl'],
 
     'Mackup': ['.mackup.cfg'],
 
@@ -488,7 +495,7 @@ SUPPORTED_APPS = {
 
 
 # Current version
-VERSION = '0.5.7'
+VERSION = '0.5.8'
 
 # Mode used to backup files to Dropbox
 BACKUP_MODE = 'backup'
