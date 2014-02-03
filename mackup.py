@@ -62,11 +62,14 @@ SUPPORTED_APPS = {
     'Adium': [APP_SUPPORT + 'Adium 2.0',
               PREFERENCES + 'com.adiumX.adiumX.plist'],
 
+    'Adobe Camera Raw': [APP_SUPPORT + 'Adobe/CameraRaw'],
+
     'Adobe Lightroom': [
         APP_SUPPORT + 'Adobe/Lightroom',
         PREFERENCES + 'com.adobe.Lightroom2.plist',
         PREFERENCES + 'com.adobe.Lightroom3.plist',
-        PREFERENCES + 'com.adobe.Lightroom4.plist'],
+        PREFERENCES + 'com.adobe.Lightroom4.plist',
+        PREFERENCES + 'com.adobe.Lightroom5.plist'],
 
     'AppCode 2': [APP_SUPPORT + 'appCode20',
                   PREFERENCES + 'appCode20'],
@@ -140,8 +143,7 @@ SUPPORTED_APPS = {
     'Cyberduck': [APP_SUPPORT + 'Cyberduck',
                   PREFERENCES + 'ch.sudo.cyberduck.plist'],
 
-    'Dash': [APP_SUPPORT + 'Dash/DocSets',
-             APP_SUPPORT + 'Dash/library.dash',
+    'Dash': [APP_SUPPORT + 'Dash/library.dash',
              PREFERENCES + 'com.kapeli.dash.plist'],
 
     'Deal Alert': [PREFERENCES + 'com.LittleFin.DealAlert.plist'],
@@ -151,6 +153,9 @@ SUPPORTED_APPS = {
                          PREFERENCES + 'com.stclairsoft.DefaultFolderX.settings.plist'],
 
     'Divvy': [PREFERENCES + 'com.mizage.direct.Divvy.plist'],
+
+    'Dolphin': [APP_SUPPORT + 'Dolphin',
+                PREFERENCES + 'org.dolphin-emu.dolphin.plist'],
 
     'Droplr': [PREFERENCES + 'com.droplr.droplr-mac.plist'],
 
@@ -221,7 +226,9 @@ SUPPORTED_APPS = {
 
     'Irssi': ['.irssi'],
 
-    'Janus': ['.janus'],
+    'Janus': ['.janus',
+              '.vimrc.before',
+              '.vimrc.after'],
 
     'Keka': [PREFERENCES + 'com.aone.keka.plist'],
 
@@ -343,6 +350,8 @@ SUPPORTED_APPS = {
                     APP_SUPPORT + 'Quicksilver'],
 
     'Rails': ['.railsrc'],
+
+    'rTorrent': ['.rtorrent.rc'],
 
     'Ruby': ['.gemrc',
              '.irbrc',

@@ -153,6 +153,7 @@ That's it, you got your `git` config setup on your new workstation.
 
   - [Ack](http://beyondgrep.com/)
   - [Adium](http://adium.im/)
+  - [Adobe Camera Raw](http://www.adobe.com/products/photoshop/extend.html)
   - [Adobe Lightroom](http://www.adobe.com/products/photoshop-lightroom.html)
   - [AppCode 2](http://www.jetbrains.com/objc/)
   - [Arara](http://cereda.github.io/arara/)
@@ -183,6 +184,7 @@ That's it, you got your `git` config setup on your new workstation.
   - [Deal Alert](http://dealalertapp.com/)
   - [Default Folder X](http://www.stclairsoft.com/DefaultFolderX/)
   - [Divvy](http://mizage.com/divvy/)
+  - [Dolphin](https://dolphin-emu.org/)
   - [Droplr](https://droplr.com/hello)
   - [Emacs](http://www.gnu.org/software/emacs/)
   - [Ember](http://www.realmacsoftware.com/ember)
@@ -251,6 +253,7 @@ That's it, you got your `git` config setup on your new workstation.
   - [PyPI](https://pypi.python.org/pypi)
   - [Quicksilver](http://qsapp.com/)
   - [Rails](http://rubyonrails.org/)
+  - [rTorrent](http://libtorrent.rakshasa.no/)
   - [Ruby Version](https://gist.github.com/fnichol/1912050)
   - [Ruby](http://ruby-lang.org/)
   - [RubyMine 4](http://www.jetbrains.com/ruby/)
