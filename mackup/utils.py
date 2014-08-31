@@ -7,12 +7,8 @@ import shutil
 import stat
 import subprocess
 import sys
-try:
-    import configparser
-except ImportError:
-    import ConfigParser as configparser
+import sqlite3
 
-from . import appsdb
 from . import constants
 
 
@@ -187,21 +183,27 @@ def parse_cmdline_args():
         (argparse.Namespace)
     """
 
-    app_db = appsdb.ApplicationsDatabase()
+    # Format the description text
+    description = ("Mackup {}\n"
+                   "Keep your application settings in sync.\n"
+                   "Copyright (C) 2013-2014 Laurent Raufaste"
+                   " <http://glop.org/>\n"
+                   .format(constants.VERSION))
 
     # Format some epilog text
-    epilog = "Supported applications:\n"
-    for app_name in sorted(app_db.get_app_names()):
-        epilog += " - {}\n".format(app_name)
-    epilog += "\n\nMackup requires a fully synced Dropbox folder."
+    epilog = ("Mackup modes of action:\n"
+              " - backup: sync your conf files to your synced storage, use"
+              " this the 1st time you use Mackup.\n"
+              " - restore: link the conf files already in your synced storage"
+              " on your system, use it on any new system you use.\n"
+              " - uninstall: reset everything as it was before using Mackup.\n"
+              " - list: display a list of all supported applications.\n")
+
+    help_msg = "Required action mode for Mackup, see below for details."
 
     # Setup the global parser
     parser = argparse.ArgumentParser(
-        description=("Mackup {}\n"
-                     "Keep your application settings in sync.\n"
-                     "Copyright (C) 2013-2014 Laurent Raufaste"
-                     " <http://glop.org/>\n"
-                     .format(constants.VERSION)),
+        description=description,
         epilog=epilog,
         formatter_class=argparse.RawDescriptionHelpFormatter)
 
@@ -209,14 +211,9 @@ def parse_cmdline_args():
     parser.add_argument("mode",
                         choices=[constants.BACKUP_MODE,
                                  constants.RESTORE_MODE,
-                                 constants.UNINSTALL_MODE],
-                        help=("Backup will sync your conf files to Dropbox,"
-                              " use this the 1st time you use Mackup.\n"
-                              "Restore will link the conf files already in"
-                              " Dropbox on your system, use it on any new"
-                              " system you use.\n"
-                              "Uninstall will reset everything as it was"
-                              " before using Mackup."))
+                                 constants.UNINSTALL_MODE,
+                                 constants.LIST_MODE],
+                        help=help_msg)
 
     # Parse the command line and return the parsed options
     return parser.parse_args()
@@ -229,87 +226,44 @@ def get_dropbox_folder_location():
     Returns:
         (str) Full path to the current Dropbox folder
     """
-    host_db_path = os.environ['HOME'] + '/.dropbox/host.db'
-    with open(host_db_path, 'r') as f_hostdb:
-        data = f_hostdb.read().split()
+    host_db_path = os.path.join(os.environ['HOME'], '.dropbox/host.db')
+    try:
+        with open(host_db_path, 'r') as f_hostdb:
+            data = f_hostdb.read().split()
+    except IOError:
+        error("Unable to find your Dropbox install =(")
     dropbox_home = base64.b64decode(data[1])
 
     return dropbox_home
 
 
-def get_ignored_apps():
+def get_google_drive_folder_location():
     """
-    Get the list of applications ignored in the config file
+    Try to locate the Google Drive folder
 
     Returns:
-        (set) List of application names to ignore, lowercase
+        (unicode) Full path to the current Google Drive folder
     """
-    # If a config file exists, grab it and parser it
-    config = configparser.SafeConfigParser(allow_no_value=True)
+    gdrive_db_path = 'Library/Application Support/Google/Drive/sync_config.db'
+    googledrive_home = None
 
-    # We ignore nothing by default
-    ignored_apps = []
+    gdrive_db = os.path.join(os.environ['HOME'], gdrive_db_path)
+    if (os.path.isfile(gdrive_db)):
+        con = sqlite3.connect(gdrive_db)
+        if con:
+            cur = con.cursor()
+            query = ("SELECT data_value "
+                     "FROM data "
+                     "WHERE entry_key = 'local_sync_root_path';")
+            cur.execute(query)
+            data = cur.fetchone()
+            googledrive_home = unicode(data[0])
+            con.close()
 
-    # Is the config file there ?
-    path_to_cfg = "{}/{}".format(os.environ['HOME'],
-                                 constants.MACKUP_CONFIG_FILE)
-    if config.read(path_to_cfg):
-        # Is the "[applications_to_ignore]" in the cfg file ?
-        if config.has_section('applications_to_ignore'):
-            ignored_apps = config.options('applications_to_ignore')
+    if not googledrive_home:
+        error("Unable to find your Google Drive install =(")
 
-    return set(ignored_apps)
-
-
-def get_allowed_apps():
-    """
-    Get the list of applications allowed in the config file
-
-    Returns:
-        (list) list of application names to backup
-    """
-
-    # Instantiate the app db
-    app_db = appsdb.ApplicationsDatabase()
-
-    # If a config file exists, grab it and parser it
-    config = configparser.SafeConfigParser(allow_no_value=True)
-
-    # We allow all by default
-    allowed_apps = app_db.get_app_names()
-
-    # Is the config file there ?
-    path_to_cfg = "{}/{}".format(os.environ['HOME'],
-                                 constants.MACKUP_CONFIG_FILE)
-    if config.read(path_to_cfg):
-        # Is the "[applications_to_sync]" section in the cfg file ?
-        if config.has_section('applications_to_sync'):
-            # Reset allowed apps to include only the user-defined
-            allowed_apps = []
-            for app_name in app_db.get_app_names():
-                if app_name in config.options('applications_to_sync'):
-                    allowed_apps.append(app_name)
-
-    return allowed_apps
-
-
-def get_apps_to_backup():
-    """
-    Get the list of application that should be backup by Mackup.
-    It's the list of allowed apps minus the list of ignored apps.
-
-    Returns:
-        (set) List of application names to backup
-    """
-    apps_to_backup = []
-    apps_to_ignore = get_ignored_apps()
-    apps_to_allow = get_allowed_apps()
-
-    for app_name in apps_to_allow:
-        if app_name not in apps_to_ignore:
-            apps_to_backup.append(app_name)
-
-    return apps_to_backup
+    return googledrive_home
 
 
 def is_process_running(process_name):

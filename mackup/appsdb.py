@@ -21,28 +21,10 @@ class ApplicationsDatabase(object):
         """
         Create a ApplicationsDatabase instance
         """
-        # Configure the config parser
-        apps_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                APPS_DIR)
-        custom_apps_dir = os.path.join(os.environ['HOME'], CUSTOM_APPS_DIR)
-
-        # Build the list of stock application config files
-        config_files = []
-        for filename in os.listdir(apps_dir):
-            if filename.endswith('.cfg'):
-                config_files.append(os.path.join(apps_dir, filename))
-
-        # Append the list of custom application config files
-        if os.path.isdir(custom_apps_dir):
-            for filename in os.listdir(custom_apps_dir):
-                if filename.endswith('.cfg'):
-                    config_files.append(os.path.join(custom_apps_dir,
-                                                     filename))
-
         # Build the dict that will contain the properties of each application
         self.apps = dict()
 
-        for config_file in config_files:
+        for config_file in ApplicationsDatabase.get_config_files():
             config = configparser.SafeConfigParser(allow_no_value=True)
 
             # Needed to not lowercase the configuration_files in the ini files
@@ -64,8 +46,40 @@ class ApplicationsDatabase(object):
                 # Add the configuration files to sync
                 self.apps[app_name]['configuration_files'] = set()
                 if config.has_section('configuration_files'):
-                    for paths in config.options('configuration_files'):
-                        self.apps[app_name]['configuration_files'].add(paths)
+                    for path in config.options('configuration_files'):
+                        if path.startswith('/'):
+                            raise ValueError('Unsupported absolute path: {}'
+                                             .format(path))
+                        self.apps[app_name]['configuration_files'].add(path)
+
+    @staticmethod
+    def get_config_files():
+        """
+        Return a list of configuration files describing the apps supported by
+        Mackup. The files return are absolute fullpath to those files.
+        e.g. /usr/lib/mackup/applications/bash.cfg
+
+        Returns:
+            set of strings.
+        """
+        # Configure the config parser
+        apps_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                                APPS_DIR)
+        custom_apps_dir = os.path.join(os.environ['HOME'], CUSTOM_APPS_DIR)
+
+        # Build the list of stock application config files
+        config_files = set()
+        for filename in os.listdir(apps_dir):
+            if filename.endswith('.cfg'):
+                config_files.add(os.path.join(apps_dir, filename))
+
+        # Append the list of custom application config files
+        if os.path.isdir(custom_apps_dir):
+            for filename in os.listdir(custom_apps_dir):
+                if filename.endswith('.cfg'):
+                    config_files.add(os.path.join(custom_apps_dir,
+                                                  filename))
+        return config_files
 
     def get_name(self, name):
         """
@@ -87,20 +101,20 @@ class ApplicationsDatabase(object):
             name (str)
 
         Returns:
-            list(str)
+            set of str.
         """
-        return list(self.apps[name]['configuration_files'])
+        return self.apps[name]['configuration_files']
 
     def get_app_names(self):
         """
         Return the list of application names that are available in the database
 
         Returns:
-            list(str)
+            set of str.
         """
-        app_names = []
+        app_names = set()
         for name in self.apps:
-            app_names.append(name)
+            app_names.add(name)
 
         return app_names
 
@@ -109,10 +123,10 @@ class ApplicationsDatabase(object):
         Return the list of pretty app names that are available in the database
 
         Returns:
-            list(str)
+            set of str.
         """
-        pretty_app_names = []
+        pretty_app_names = set()
         for app_name in self.get_app_names():
-            pretty_app_names.append(self.get_name(app_name))
+            pretty_app_names.add(self.get_name(app_name))
 
         return pretty_app_names

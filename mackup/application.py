@@ -20,10 +20,10 @@ class ApplicationProfile(object):
             files (list)
         """
         assert isinstance(mackup, Mackup)
-        assert isinstance(files, list)
+        assert isinstance(files, set)
 
         self.mackup = mackup
-        self.files = files
+        self.files = list(files)
 
     def backup(self):
         """
@@ -174,6 +174,7 @@ class ApplicationProfile(object):
 
                 # Check if there is a corresponding file in the home folder
                 if os.path.exists(home_filepath):
+                    print "Moving {} back into your home...".format(filename)
                     # If there is, delete it as we are gonna copy the Dropbox
                     # one there
                     utils.delete(home_filepath)

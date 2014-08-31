@@ -2,24 +2,27 @@
 
 Keep your application settings in sync.
 
-[![Build Status](https://travis-ci.org/lra/mackup.png?branch=master)](https://travis-ci.org/lra/mackup)
-[![Coverage Status](https://coveralls.io/repos/lra/mackup/badge.png)](https://coveralls.io/r/lra/mackup)
+[![Circle CI](https://circleci.com/gh/lra/mackup.svg?style=shield)](https://circleci.com/gh/lra/mackup)
+[![Coverage Status](https://img.shields.io/coveralls/lra/mackup.svg)](https://coveralls.io/r/lra/mackup?branch=master)
 [![Code Health](https://landscape.io/github/lra/mackup/master/landscape.png)](https://landscape.io/github/lra/mackup/master)
 
 ## Quickstart
 
-Install [Dropbox](http://www.dropbox.com/) first, it's needed.
+If you have Dropbox installed and want to use it to save your config files,
+that's super easy.
 
-On OS X, if you want an easy install, you can install [Homebrew](http://brew.sh/) and do:
+On OS X, if you want an easy install, you can install
+[Homebrew](http://brew.sh/) and do:
 ```bash
 # Install Mackup
 brew install mackup
 
-# Launch it and back up your files in Dropbox
+# Launch it and back up your files
 mackup backup
 ```
 
-If not running OS X, or you don't like Homebrew, run on your current workstation:
+If not running OS X, or you don't like Homebrew, run on your current
+workstation:
 ```bash
 # Download Mackup
 curl -o mackup.zip https://codeload.github.com/lra/mackup/zip/master
@@ -27,18 +30,18 @@ curl -o mackup.zip https://codeload.github.com/lra/mackup/zip/master
 # Uncompress the archive
 unzip mackup.zip
 
-# Launch it and back up your files in Dropbox
+# Launch it and back up your files
 ./mackup-master/bin/mackup backup
 ```
 
 You're all set, and constantly backuped from now on.
 
-Next, on any new workstation, install Dropbox and do:
+Next, on any new workstation, do:
 ```bash
 # Install Mackup
 brew install mackup
 
-# Launch it and restore your files from Dropbox
+# Launch it and restore your files
 mackup restore
 ```
 
@@ -50,7 +53,7 @@ You can find more detailled instructions in [INSTALL.md](INSTALL.md)
 
 `mackup backup`
 
-Backup your application settings in Dropbox.
+Backup your application settings.
 
 `mackup restore`
 
@@ -61,19 +64,23 @@ Restore your application settings on a newly installed workstation.
 Revert any synced config file to its original state, and delete the Mackup
 folder in Dropbox. This will revert your system at pre-Mackup state.
 
+`mackup list`
+
+Display the list of applications supported by Mackup.
+
 `mackup -h`
 
 Get some help, obvious...
 
 ## What does it do ?
 
-- Backups your application settings in Dropbox
+- Backups your application settings in a safe directory (e.g. Dropbox)
 - Syncs your application settings among all your workstations
 - Restores your configuration on any fresh install in one command line
 
-By only tracking pure configuration files, it keeps the crap out of your freshly
-new installed workstation (No cache, temporary and locally specific files are
-transfered).
+By only tracking pure configuration files, it keeps the crap out of your
+freshly new installed workstation (No cache, temporary and locally specific
+files are transfered).
 
 It also helps you spend more time doing real cool stuff, and less time setting
 you environment.
@@ -85,7 +92,8 @@ folder, in the `.gitconfig` file.
 
 ### Backup
 
-When you launch `mackup backup`, here's what it's really doing:
+If you have Dropbox, when you launch `mackup backup`, here's what it's really
+doing:
 
 1. `cp ~/.gitconfig ~/Dropbox/Mackup/.gitconfig`
 1. `rm ~/.gitconfig`
@@ -113,6 +121,14 @@ mackup uninstall
 This will move back any file from Dropbox to its original place in your home
 folder and destroy the Mackup folder in Dropbox.
 
+## Supported Storages
+
+ - [Dropbox](https://www.dropbox.com/)
+ - [Google Drive](https://drive.google.com/)
+ - Anything able to sync a folder (e.g. [Git](http://git-scm.com/))
+
+See the [README](doc/README.md) file in the doc directory for more info.
+
 ## Supported Applications
 
   - [Ack](http://beyondgrep.com/)
@@ -120,9 +136,15 @@ folder and destroy the Mackup folder in Dropbox.
   - [Adobe Camera Raw](http://www.adobe.com/products/photoshop/extend.html)
   - [Adobe Lightroom](http://www.adobe.com/products/photoshop-lightroom.html)
   - [AppCode 2](http://www.jetbrains.com/objc/)
+  - [aria2c](http://aria2.sourceforge.net/)
   - [Arara](http://cereda.github.io/arara/)
+  - [Artistic Style](http://astyle.sourceforge.net)
+  - [asciinema](https://asciinema.org/)
   - [Aspell](http://aspell.net/)
+  - [Atom](https://atom.io/)
+  - [AusKey](https://abr.gov.au/AUSkey/)
   - [Awareness](http://iamfutureproof.com/tools/awareness/)
+  - [AWS Command Line Interface](https://aws.amazon.com/cli/)
   - [Bartender](http://www.macbartender.com/)
   - [Bash it](https://github.com/revans/bash-it/)
   - [Bash](http://www.gnu.org/software/bash/)
@@ -130,9 +152,12 @@ folder and destroy the Mackup folder in Dropbox.
   - [BetterTouchTool](http://blog.boastr.net/)
   - [BibDesk](http://bibdesk.sourceforge.net/)
   - [Boto](https://github.com/boto/boto)
+  - [Brackets](http://brackets.io/)
   - [Bundler](http://bundler.io)
   - [Byobu](http://byobu.co/)
   - [Caffeine](http://lightheadsw.com/caffeine/)
+  - [Cartographica](http://www.macgis.com)
+  - [Charles](http://www.charlesproxy.com)
   - [Chef](http://www.opscode.com/chef/)
   - [Chicken](http://sourceforge.net/projects/chicken/)
   - [Clementine](http://www.clementine-player.org/)
@@ -166,8 +191,10 @@ folder and destroy the Mackup folder in Dropbox.
   - [Git](http://git-scm.com/)
   - [Gitbox](http://gitboxapp.com/)
   - [Gmail Notifr](http://ashchan.com/projects/gmail-notifr)
+  - [Go2Shell](http://zipzapmac.com/Go2Shell)
   - [GnuPG](http://www.gnupg.org/)
   - [Hands Off!](http://www.oneperiodic.com/products/handsoff/)
+  - [Hazel](http://www.noodlesoft.com/hazel.php)
   - [Heroku](https://www.heroku.com/)
   - [Hexels](http://hexraystudios.com/hexels/)
   - [Htop](http://htop.sourceforge.net/)
@@ -175,58 +202,72 @@ folder and destroy the Mackup folder in Dropbox.
   - [IntelliJIDEA 12](http://www.jetbrains.com/idea/)
   - [Irssi](http://www.irssi.org/)
   - [ITerm2](http://www.iterm2.com/)
+  - [JSHint](http://www.jshint.com/)
   - [Janus](https://github.com/carlhuda/janus)
+  - [Karabiner](https://pqrs.org/osx/karabiner)
   - [Keka](http://kekaosx.com/)
+  - [Keybase](https://keybase.io/)
   - [Keymo](http://manytricks.com/keymo/)
   - [KeyRemap4MacBook](http://pqrs.org/macosx/keyremap4macbook/)
   - [LaTeXiT](http://www.chachatelier.fr/latexit/latexit-home.php?lang=en)
   - [LaunchBar](http://www.obdev.at/products/launchbar/index.html)
+  - [Liftoff](http://github.com/thoughtbot/liftoff)
   - [Light Table](http://www.lighttable.com/)
   - [LimeChat](http://limechat.net/mac/)
   - [LittleSnitch](http://www.obdev.at/products/littlesnitch/)
   - [Livestreamer](http://livestreamer.tanuki.se/)
   - [MacOSX](http://www.apple.com/osx/)
   - [MacVim](https://code.google.com/p/macvim/)
+  - [Magic Launch](https://www.oneperiodic.com/products/magiclaunch/)
   - [MagicPrefs](http://magicprefs.com/)
   - [Mailplane](http://mailplaneapp.com/)
   - [MenuMeters](http://www.ragingmenace.com/software/menumeters/)
   - [Mercurial](http://mercurial.selenic.com/)
   - [MercuryMover](http://www.heliumfoot.com/mercurymover/)
   - [Messages](http://www.apple.com/osx/apps/#messages)
+  - [MySQL](http://www.mysql.com/)
   - [Moom](http://manytricks.com/moom/)
   - [Mou](http://mouapp.com/)
   - [mpd](http://www.musicpd.org)
   - [MPV](http://mpv.io/)
   - [Nano](http://www.nano-editor.org/)
   - [ncmpcpp](http://ncmpcpp.rybczak.net)
+  - [newsbeuter](http://newsbeuter.org/)
   - [nvALT](http://brettterpstra.com/projects/nvalt/)
+  - [nvpy](https://github.com/cpbotha/nvpy)
   - [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
   - [OmniFocus](http://www.omnigroup.com/products/omnifocus/)
   - [OmniGraffle](http://www.omnigroup.com/omnigraffle/)
   - [OpenSSH](http://www.openssh.org/)
   - [Pastebot](http://tapbots.com/software/pastebot/)
   - [Path Finder](http://www.cocoatech.com/pathfinder/)
-  - [PCKeyboardHack](http://pqrs.org/macosx/keyremap4macbook/pckeyboardhack.html.en)
   - [Pear](http://pear.php.net/)
   - [Pentadactyl](http://5digits.org/pentadactyl/)
-  - [PhpStorm 6](http://www.jetbrains.com/phpstorm/)
+  - [Perl](http://www.perl.org/)
+  - [Phoenix](https://github.com/sdegutis/Phoenix)
+  - [PhpStorm](http://www.jetbrains.com/phpstorm/)
   - [PIP](http://www.pip-installer.org/)
   - [PokerStars](http://www.pokerstars.com/)
   - [PopClip](http://pilotmoon.com/popclip/)
   - [Pow](http://pow.cx/)
+  - [Prezto](https://github.com/sorin-ionescu/prezto)
+  - [Processing](http://processing.org/)
   - [PyPI](https://pypi.python.org/pypi)
   - [Quicksilver](http://qsapp.com/)
   - [Rails](http://rubyonrails.org/)
   - [rTorrent](http://libtorrent.rakshasa.no/)
+  - [R](http://www.r-project.org/)
   - [Ruby Version](https://gist.github.com/fnichol/1912050)
   - [Ruby](http://ruby-lang.org/)
-  - [RubyMine 4](http://www.jetbrains.com/ruby/)
-  - [RubyMine 5](http://www.jetbrains.com/ruby/)
+  - [RubyMine](http://www.jetbrains.com/ruby/)
   - [S3cmd](http://s3tools.org/s3cmd)
   - [SABnzbd](http://sabnzbd.org/)
+  - [SBCL](http://www.sbcl.org/)
+  - [SBT](http://www.scala-sbt.org/)
   - [Scenario](http://www.lagentesoft.com/scenario/)
   - [Screen](http://www.gnu.org/software/screen/)
   - [SelfControl](http://selfcontrolapp.com/)
+  - [Seil](https://pqrs.org/macosx/keyremap4macbook/seil.html.en)
   - [Sequel Pro](http://www.sequelpro.com/)
   - [SHSH Blobs](http://en.wikipedia.org/wiki/SHSH_blob)
   - [Shuttle](http://fitztrev.github.io/shuttle/)
@@ -236,6 +277,7 @@ folder and destroy the Mackup folder in Dropbox.
   - [Skype](http://www.skype.com/)
   - [Slate](https://github.com/jigish/slate)
   - [Slogger](http://brettterpstra.com/projects/slogger/)
+  - [Soulver](http://www.acqualia.com/soulver/)
   - [SourceTree](http://sourcetreeapp.com)
   - [Spark](http://www.shadowlab.org/softwares/spark.php)
   - [Spectacle](http://spectacleapp.com/)
@@ -247,6 +289,7 @@ folder and destroy the Mackup folder in Dropbox.
   - [Teamocil](http://remiprev.github.io/teamocil/)
   - [TextMate](http://macromates.com/)
   - [Textual](http://www.codeux.com/textual/)
+  - [Tig](https://github.com/jonas/tig)
   - [Tmux](http://tmux.sourceforge.net/)
   - [Tmuxinator](https://github.com/aziz/tmuxinator)
   - [Tower](http://www.git-tower.com/)
@@ -258,6 +301,7 @@ folder and destroy the Mackup folder in Dropbox.
   - [Vim](http://www.vim.org/)
   - [Vimperator](http://www.vimperator.org/vimperator)
   - [Viscosity](http://www.sparklabs.com/viscosity/)
+  - [Wget](https://www.gnu.org/software/wget/)
   - [Witch](http://manytricks.com/witch/)
   - [X11](http://www.x.org/)
   - [Xchat](http://www.xchat.org/)
@@ -294,7 +338,7 @@ a lot of us had the same problem: Making a more generic tool could help others
 and I could get help from others to support more apps in the tool.
 
 So here comes Mackup, the little tool that will sync all your application
-configs to Dropbox.
+configs to Dropbox (or Google Drive, or anything).
 
 And it's [GPL](http://www.gnu.org/licenses/gpl.html) of course.
 
