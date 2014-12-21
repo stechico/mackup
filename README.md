@@ -21,17 +21,13 @@ brew install mackup
 mackup backup
 ```
 
-If not running OS X, or you don't like Homebrew, run on your current
-workstation:
+If not running OS X, or you don't like Homebrew, you can use PIP:
 ```bash
-# Download Mackup
-curl -o mackup.zip https://codeload.github.com/lra/mackup/zip/master
-
-# Uncompress the archive
-unzip mackup.zip
+# Install Mackup with PIP
+pip install mackup
 
 # Launch it and back up your files
-./mackup-master/bin/mackup backup
+mackup backup
 ```
 
 You're all set, and constantly backuped from now on.
@@ -83,7 +79,7 @@ freshly new installed workstation (No cache, temporary and locally specific
 files are transfered).
 
 It also helps you spend more time doing real cool stuff, and less time setting
-you environment.
+up your environment.
 
 ## Bullsh*t, what does it really do to my files ?!
 
@@ -131,6 +127,7 @@ See the [README](doc/README.md) file in the doc directory for more info.
 
 ## Supported Applications
 
+  - [1Password 4](https://agilebits.com/onepassword)
   - [Ack](http://beyondgrep.com/)
   - [Adium](http://adium.im/)
   - [Adobe Camera Raw](http://www.adobe.com/products/photoshop/extend.html)
@@ -151,6 +148,7 @@ See the [README](doc/README.md) file in the doc directory for more info.
   - [BetterSnapTool](http://blog.boastr.net/)
   - [BetterTouchTool](http://blog.boastr.net/)
   - [BibDesk](http://bibdesk.sourceforge.net/)
+  - [Billings Pro Server Admin](https://www.marketcircle.com/billingspro/download/billingspro-server/)
   - [Boto](https://github.com/boto/boto)
   - [Brackets](http://brackets.io/)
   - [Bundler](http://bundler.io)
@@ -165,6 +163,9 @@ See the [README](doc/README.md) file in the doc directory for more info.
   - [CloudApp](http://getcloudapp.com/)
   - [Coda 2](http://panic.com/coda/)
   - [Colloquy](http://colloquy.info/)
+  - [ColorSchemer Studio 2](http://www.colorschemer.com/osx_info.php)
+  - [Composer](https://getcomposer.org/)
+  - [Consular](http://www.rubydoc.info/github/achiu/consular/master/file/README.md)
   - [Concentrate](http://www.getconcentrating.com/)
   - [ControlPlane](http://www.controlplaneapp.com/)
   - [CoRD](http://cord.sourceforge.net/)
@@ -187,23 +188,30 @@ See the [README](doc/README.md) file in the doc directory for more info.
   - [FontExplorer X](http://www.fontexplorerx.com/)
   - [ForkLift 2](http://www.binarynights.com/forklift/)
   - [GeekTool](http://projects.tynsoe.org/en/geektool/)
+  - [GHCi](http://www.haskell.org/haskellwiki/GHC/GHCi)
   - [Git Hooks](https://github.com/icefox/git-hooks)
   - [Git](http://git-scm.com/)
   - [Gitbox](http://gitboxapp.com/)
   - [Gmail Notifr](http://ashchan.com/projects/gmail-notifr)
   - [Go2Shell](http://zipzapmac.com/Go2Shell)
   - [GnuPG](http://www.gnupg.org/)
+  - [GrandTotal 3](http://www.mediaatelier.com/GrandTotal3/)
   - [Hands Off!](http://www.oneperiodic.com/products/handsoff/)
   - [Hazel](http://www.noodlesoft.com/hazel.php)
   - [Heroku](https://www.heroku.com/)
   - [Hexels](http://hexraystudios.com/hexels/)
+  - [Houdini](http://uglyapps.co.uk/houdini/)
   - [Htop](http://htop.sourceforge.net/)
   - [i2cssh](https://github.com/wouterdebie/i2cssh)
-  - [IntelliJIDEA 12](http://www.jetbrains.com/idea/)
+  - [IntelliJIDEA](http://www.jetbrains.com/idea/)
   - [Irssi](http://www.irssi.org/)
+  - [iStat Menus 5](http://bjango.com/mac/istatmenus/)
   - [ITerm2](http://www.iterm2.com/)
   - [JSHint](http://www.jshint.com/)
   - [Janus](https://github.com/carlhuda/janus)
+  - [jrnl](http://maebert.github.io/jrnl/)
+  - [Julia](http://julialang.org)
+  - [Kaleidoscope](http://www.kaleidoscopeapp.com/)
   - [Karabiner](https://pqrs.org/osx/karabiner)
   - [Keka](http://kekaosx.com/)
   - [Keybase](https://keybase.io/)
@@ -221,6 +229,7 @@ See the [README](doc/README.md) file in the doc directory for more info.
   - [Magic Launch](https://www.oneperiodic.com/products/magiclaunch/)
   - [MagicPrefs](http://magicprefs.com/)
   - [Mailplane](http://mailplaneapp.com/)
+  - [Max](http://sbooth.org/Max/)
   - [MenuMeters](http://www.ragingmenace.com/software/menumeters/)
   - [Mercurial](http://mercurial.selenic.com/)
   - [MercuryMover](http://www.heliumfoot.com/mercurymover/)
@@ -231,14 +240,18 @@ See the [README](doc/README.md) file in the doc directory for more info.
   - [mpd](http://www.musicpd.org)
   - [MPV](http://mpv.io/)
   - [Nano](http://www.nano-editor.org/)
+  - [Navicat](http://navicat.com/)
   - [ncmpcpp](http://ncmpcpp.rybczak.net)
   - [newsbeuter](http://newsbeuter.org/)
+  - [ngrok](https://ngrok.com/)
   - [nvALT](http://brettterpstra.com/projects/nvalt/)
   - [nvpy](https://github.com/cpbotha/nvpy)
+  - [Oh My Fish](https://github.com/bpinto/oh-my-fish)
   - [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
   - [OmniFocus](http://www.omnigroup.com/products/omnifocus/)
   - [OmniGraffle](http://www.omnigroup.com/omnigraffle/)
   - [OpenSSH](http://www.openssh.org/)
+  - [Pass](http://www.passwordstore.org/)
   - [Pastebot](http://tapbots.com/software/pastebot/)
   - [Path Finder](http://www.cocoatech.com/pathfinder/)
   - [Pear](http://pear.php.net/)
@@ -247,16 +260,20 @@ See the [README](doc/README.md) file in the doc directory for more info.
   - [Phoenix](https://github.com/sdegutis/Phoenix)
   - [PhpStorm](http://www.jetbrains.com/phpstorm/)
   - [PIP](http://www.pip-installer.org/)
+  - [Poedit](http://poedit.net/)
   - [PokerStars](http://www.pokerstars.com/)
   - [PopClip](http://pilotmoon.com/popclip/)
+  - [PostgreSQL](http://postgresql.org/)
   - [Pow](http://pow.cx/)
   - [Prezto](https://github.com/sorin-ionescu/prezto)
   - [Processing](http://processing.org/)
+  - [Punto Switcher](http://punto.yandex.ru/)
   - [PyPI](https://pypi.python.org/pypi)
   - [Quicksilver](http://qsapp.com/)
   - [Rails](http://rubyonrails.org/)
   - [rTorrent](http://libtorrent.rakshasa.no/)
   - [R](http://www.r-project.org/)
+  - [Rubocop](https://github.com/bbatsov/rubocop)
   - [Ruby Version](https://gist.github.com/fnichol/1912050)
   - [Ruby](http://ruby-lang.org/)
   - [RubyMine](http://www.jetbrains.com/ruby/)
@@ -266,6 +283,9 @@ See the [README](doc/README.md) file in the doc directory for more info.
   - [SBT](http://www.scala-sbt.org/)
   - [Scenario](http://www.lagentesoft.com/scenario/)
   - [Screen](http://www.gnu.org/software/screen/)
+  - [Screenhero](https://screenhero.com)
+  - [Scrivener](http://www.literatureandlatte.com/scrivener.php)
+  - [Scroll Reverser](https://pilotmoon.com/scrollreverser/)
   - [SelfControl](http://selfcontrolapp.com/)
   - [Seil](https://pqrs.org/macosx/keyremap4macbook/seil.html.en)
   - [Sequel Pro](http://www.sequelpro.com/)
@@ -280,13 +300,18 @@ See the [README](doc/README.md) file in the doc directory for more info.
   - [Soulver](http://www.acqualia.com/soulver/)
   - [SourceTree](http://sourcetreeapp.com)
   - [Spark](http://www.shadowlab.org/softwares/spark.php)
+  - [Spectrwm](https://opensource.conformal.com/wiki/spectrwm)
   - [Spectacle](http://spectacleapp.com/)
   - [Spotify](https://www.spotify.com/)
   - [Stata](http://www.stata.com/)
+  - [Stay](https://cordlessdog.com/stay/)
+  - [Stickies](https://en.wikipedia.org/wiki/Stickies_%28software%29)
   - [Sublime Text](http://www.sublimetext.com/)
   - [Subversion](http://subversion.apache.org/)
   - [SuperDuper!](http://www.shirt-pocket.com/SuperDuper/SuperDuperDescription.html)
+  - [TaskPaper](http://www.hogbaysoftware.com/products/taskpaper)
   - [Teamocil](http://remiprev.github.io/teamocil/)
+  - [Terminator](https://launchpad.net/terminator/)
   - [TextMate](http://macromates.com/)
   - [Textual](http://www.codeux.com/textual/)
   - [Tig](https://github.com/jonas/tig)
@@ -301,6 +326,7 @@ See the [README](doc/README.md) file in the doc directory for more info.
   - [Vim](http://www.vim.org/)
   - [Vimperator](http://www.vimperator.org/vimperator)
   - [Viscosity](http://www.sparklabs.com/viscosity/)
+  - [WebStorm 9](https://www.jetbrains.com/webstorm/)
   - [Wget](https://www.gnu.org/software/wget/)
   - [Witch](http://manytricks.com/witch/)
   - [X11](http://www.x.org/)

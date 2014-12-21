@@ -3,6 +3,47 @@
 # Mackup Changelog
 
 ## WIP
+
+- Limit .gem folder backup for Ruby, including credentials file only (via @ashchan)
+- Support for PostgreSQL (via @bashu)
+- Support for consular (via @bashu)
+- Support for Punto Switcher (via @bashu)
+- Support for Poedit (via @bashu)
+- Support for Max (via @bashu)
+- Support for jrnl (via @huyhong)
+- Support for Rubocop (via @iainbeeston)
+- Support for Terminator (via @chr1sbest)
+- Support for Houdini (via @kfinlay)
+- Support for IntelliJ IDEA 13 & 14 (via @dsager)
+- Support for Pass (via @kykim)
+- Support for Composer (via @fayland)
+- Support for GHCi (via @marcosero)
+- Add .gitignore (via @eyadsibai)
+- Support for spectrwm (via @cnodell)
+- Fixed Textual support (via @crkochan)
+- Support for 1Password 4 (via @jverdeyen)
+- Support for GrandTotal 3 (via @jverdeyen)
+- Support for TaskPaper (via @iloveitaly)
+- Support for SequelPro plist (via @iloveitaly)
+- Support for Kaleidoscope (via @iloveitaly)
+- Support for Stay (via @iloveitaly)
+- Support for Screenhero (via @iloveitaly)
+- Support for Scrivener (via @iloveitaly)
+- Support for ColorSchemer Studio 2 (via @iloveitaly)
+- Support for Billings Pro Server Admin (via @iloveitaly)
+- Support for iStat Menus 5 (via @jverdeyen)
+- Support for WebStorm 9 (via @inxilpro)
+- Support for Oh My Fish (via @inxilpro)
+- Support for Scroll Reverser (via @ponychicken)
+- Support for JuliaLang (via @danielsuo)
+- Support for OsX Stickies (via @djabbz)
+- Support for Navicat Database GUI tools (via @tdm00)
+- Sublime Text 3 now only syncs essential files, excluding session and cache folders
+
+## Mackup 0.7.4
+
+- Better Python packaging, deleted the half-baked binary
+- Adding support for ngrok .ngrok (via @yonkeltron)
 - Added support for JSHints .jshintrc
 - Improved support for Slate (via @bradcerasani)
 - Added support for nvpy - a Linux client for SimpleNote (via @hiyer)
